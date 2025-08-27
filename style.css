@@ -1,0 +1,286 @@
+/* Prevent scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ----------------- Page 1 ----------------- */
+.page1 {
+    background: linear-gradient(to bottom, #a0c4ff, #0077b6);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+}
+
+.page1 h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.page1 p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#clickMe {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #48cae4;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#clickMe:hover {
+    background-color: #023e8a;
+}
+
+/* Romantic elements on page 1 */
+.romantic-elements, .romantic-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.romantic-elements .heart {
+    font-size: 2rem;
+    animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+.romantic-bg .star {
+    position: absolute;
+    font-size: 1rem;
+    animation: floatStars linear infinite, starTwinkle 3s infinite alternate;
+    opacity: 0.8;
+}
+
+@keyframes floatStars {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-50px) translateX(100px); opacity: 0; }
+}
+
+@keyframes starTwinkle {
+    0% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.3) rotate(10deg); }
+    100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+}
+
+/* ----------------- Page 2 ----------------- */
+.page2 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('birthday-background.jpg') center/cover no-repeat;
+    filter: brightness(1.2) blur(2px);
+    z-index: 0;
+}
+
+.overlay {
+    position: relative;
+    background-color: rgba(0, 0, 139, 0.3);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    z-index: 1;
+    animation: overlayGlow 5s infinite alternate;
+}
+
+@keyframes overlayGlow {
+    0% { background-color: rgba(0, 0, 139, 0.25); }
+    50% { background-color: rgba(0, 0, 139, 0.35); }
+    100% { background-color: rgba(0, 0, 139, 0.25); }
+}
+
+.overlay h1 {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+    animation: glowPulse 2s infinite alternate;
+    position: relative;
+}
+
+.overlay h1::after {
+    content: '✨💖✨';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: sparkle 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4; color: #fff; }
+    50% { text-shadow: 0 0 20px #fff, 0 0 40px #ff69b4, 0 0 60px #ff69b4, 0 0 80px #ff9ecb; color: #ffe6f0; }
+    100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4; color: #fff; }
+}
+
+@keyframes sparkle {
+    0% { transform: translateX(-50%) scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateX(-50%) scale(1.2) rotate(20deg); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1) rotate(-20deg); opacity: 0.7; }
+}
+
+.overlay p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    text-align: center;
+}
+
+/* Button container positioned below paragraph */
+#loveBtnContainer {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px; /* spacing below paragraph */
+}
+
+/* Glowing gradient button */
+#loveBtn {
+    font-size: 2.5rem;
+    padding: 20px 50px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6eb4, #ff9ecb, #ff69b4);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff6eb4, 0 0 60px #ff9ecb;
+    transition: all 0.3s ease-in-out;
+    animation: pulseButton 2s infinite alternate;
+}
+
+#loveBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #ff69b4, 0 0 60px #ff6eb4, 0 0 90px #ff9ecb;
+}
+
+@keyframes pulseButton {
+    0% { box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff6eb4, 0 0 60px #ff9ecb; }
+    50% { box-shadow: 0 0 30px #ff69b4, 0 0 60px #ff6eb4, 0 0 90px #ff9ecb; }
+    100% { box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff6eb4, 0 0 60px #ff9ecb; }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: moveHeart 5s linear infinite;
+    pointer-events: none;
+    text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4;
+}
+
+@keyframes moveHeart {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-800px) translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+/* Balloons */
+.balloon {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatBalloon linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatBalloon {
+    0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 1; }
+    25% { transform: translateY(75vh) translateX(20px) rotate(15deg); }
+    50% { transform: translateY(50vh) translateX(-20px) rotate(-15deg); }
+    75% { transform: translateY(25vh) translateX(20px) rotate(15deg); }
+    100% { transform: translateY(-100px) translateX(0) rotate(360deg); opacity: 0; }
+}
+
+/* Floating stars & hearts around message */
+#floating-elements .floating-item {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatAround 6s linear infinite;
+}
+
+@keyframes floatAround {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-50px) translateX(20px) rotate(180deg); }
+    100% { transform: translateY(-150px) translateX(-20px) rotate(360deg); opacity: 0; }
+}
+
+/* Small floating hearts around the button */
+.small-heart {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatSmallHeart 3s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes floatSmallHeart {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(0,-20px) scale(1.2); opacity: 0.8; }
+    100% { transform: translate(0,0) scale(1); opacity: 1; }
+}
+
+/* Big heart flying into button */
+.big-flying-heart {
+    position: absolute;
+    font-size: 3rem;
+    pointer-events: none;
+    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+    z-index: 9999;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    #loveBtn {
+        font-size: 2rem;
+        padding: 15px 40px;
+    }
+
+    #loveBtnContainer {
+        margin-top: 40px;
+    }
+
+    .overlay h1 {
+        font-size: 4rem;
+    }
+
+    .overlay p {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+}
